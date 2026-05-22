@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>年金受取額予測計算ツール【無料】簡単・無料計算</title>
+    <meta name="description" content="年齢・加入期間・平均給与から将来の年金受取額を予測。老後計画の参考に。登録不要・完全無料でご利用いただけます。">
+    <link rel="canonical" href="https://appadaycreator.github.io/pension-forecast-calculator/">
+    <meta property="og:title" content="年金受取額予測計算ツール【無料】簡単・無料計算">
+    <meta property="og:description" content="年齢・加入期間・平均給与から将来の年金受取額を予測。老後計画の参考に。登録不要・完全無料でご利用いただけます。">
+    <meta property="og:url" content="https://appadaycreator.github.io/pension-forecast-calculator/">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="ja_JP">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏦</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
+    <link rel="dns-prefetch" href="https://www.clarity.ms">
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    <!-- GTM -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-TXQGZRF9');</script>
+    <!-- Clarity -->
+    <script type="text/javascript">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y)})(window,document,"clarity","script","s3t9vl8h3v");</script>
+    <!-- AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8427583028015858" crossorigin="anonymous"></script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"年金受取額予測計算ツール","description":"年齢・加入期間・平均給与から将来の年金受取額を予測。老後計画の参考に。登録不要・完全無料でご利用いただけます。","url":"https://appadaycreator.github.io/pension-forecast-calculator/","applicationCategory":"UtilityApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"}}</script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', 'Noto Sans JP', sans-serif; background: linear-gradient(135deg, #FEF3C7 0%, #FFFBEB 100%); min-height: 100vh; color: #333; line-height: 1.6; }
+        .site-header { background: #B45309; color: white; padding: 32px 20px; text-align: center; }
+        .site-header .emoji { font-size: 52px; margin-bottom: 8px; }
+        .site-header h1 { font-size: 24px; font-weight: 700; margin-bottom: 8px; }
+        .site-header p { font-size: 14px; opacity: 0.9; }
+        .container { max-width: 800px; margin: 0 auto; padding: 16px; }
+        .card { background: white; border-radius: 16px; padding: 24px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); margin-bottom: 16px; }
+        .btn { background: #B45309; color: white; border: none; padding: 14px 24px; border-radius: 10px; font-size: 16px; font-weight: 600; cursor: pointer; width: 100%; transition: opacity .2s; }
+        .btn:hover { opacity: 0.9; }
+        .btn:active { transform: scale(0.98); }
+        input, select, textarea { width: 100%; padding: 10px 14px; border: 1.5px solid #e2e8f0; border-radius: 8px; font-size: 15px; margin-top: 4px; font-family: inherit; }
+        input:focus, select:focus { outline: none; border-color: #B45309; }
+        label { font-size: 13px; font-weight: 600; color: #555; display: block; margin-top: 14px; margin-bottom: 2px; }
+        .result { display: none; }
+        .result.show { display: block; }
+        .result-value { font-size: 36px; font-weight: 700; color: #B45309; text-align: center; padding: 16px 0; }
+        .badge { display: inline-block; background: #B4530920; color: #B45309; padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: 600; }
+        /* ── サービス固有CSS ── */
+
+        .pension-label {
+          display: block;
+          font-size: 13px;
+          font-weight: 600;
+          color: #444;
+          margin-bottom: 4px;
+          margin-top: 14px;
+        }
+        .pension-hint {
+          font-size: 11px;
+          color: #999;
+          margin-top: 2px;
+        }
+        .pension-row {
+          display: flex;
+          gap: 12px;
+        }
+        .pension-row > div {
+          flex: 1;
+        }
+        .result-grid {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 10px;
+          margin-top: 12px;
+        }
+        .result-item {
+          background: #FFFBEB;
+          border: 1px solid #FDE68A;
+          border-radius: 8px;
+          padding: 10px;
+          text-align: center;
+        }
+        .result-item .r-val {
+          font-size: 1.3rem;
+          font-weight: 700;
+          color: #B45309;
+        }
+        .result-item .r-lbl {
+          font-size: 11px;
+          color: #888;
+          margin-top: 2px;
+        }
+        .pension-notice {
+          font-size: 11px;
+          color: #999;
+          margin-top: 12px;
+          line-height: 1.6;
+          border-top: 1px solid #FDE68A;
+          padding-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TXQGZRF9" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+    <header class="site-header">
+        <div class="emoji">🏦</div>
+        <h1>年金受取額予測計算ツール</h1>
+        <p>年齢・加入期間・平均給与から将来の年金受取額を予測。老後計画の参考に。</p>
+    </header>
+
+    <main class="container">
+        <ins class="adsbygoogle" style="display:block;margin:12px 0" data-ad-client="ca-pub-8427583028015858" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+        <div class="card">
+          <h2 style="font-size:18px;font-weight:700;margin-bottom:4px;">🏦 年金受取額予測計算ツール</h2>
+          <p style="font-size:13px;color:#888;margin-bottom:16px;">現在の条件から将来の年金受取額を試算します</p>
+
+          <div class="pension-row">
+            <div>
+              <label class="pension-label" for="current-age">現在の年齢</label>
+              <input type="number" id="current-age" placeholder="例: 35" min="20" max="64" value="35">
+              <p class="pension-hint">20〜64歳</p>
+            </div>
+            <div>
+              <label class="pension-label" for="retire-age">受給開始年齢</label>
+              <select id="retire-age" style="width:100%;padding:10px;border:1px solid #ddd;border-radius:8px;font-size:14px;">
+                <option value="60">60歳（繰上げ）</option>
+                <option value="61">61歳</option>
+                <option value="62">62歳</option>
+                <option value="63">63歳</option>
+                <option value="64">64歳</option>
+                <option value="65" selected>65歳（標準）</option>
+                <option value="66">66歳</option>
+                <option value="67">67歳</option>
+                <option value="68">68歳</option>
+                <option value="69">69歳</option>
+                <option value="70">70歳（繰下げ）</option>
+                <option value="71">71歳</option>
+                <option value="72">72歳</option>
+                <option value="73">73歳</option>
+                <option value="74">74歳</option>
+                <option value="75">75歳（最大繰下げ）</option>
+              </select>
+              <p class="pension-hint">60〜75歳</p>
+            </div>
+          </div>
+
+          <label class="pension-label" for="enroll-years">現在までの加入期間（年）</label>
+          <input type="number" id="enroll-years" placeholder="例: 12" min="0" max="45" value="12">
+          <p class="pension-hint">厚生年金・国民年金の合計加入年数（0〜45年）</p>
+
+          <label class="pension-label" for="avg-salary">平均年収（万円）</label>
+          <input type="number" id="avg-salary" placeholder="例: 500" min="100" max="3000" value="500">
+          <p class="pension-hint">これまでの平均年収の目安（100〜3,000万円）</p>
+
+          <label class="pension-label">加入種別</label>
+          <div style="display:flex;gap:8px;margin-top:4px;">
+            <label style="flex:1;display:flex;align-items:center;gap:6px;padding:10px;border:2px solid #ddd;border-radius:8px;cursor:pointer;font-size:13px;" id="lbl-company">
+              <input type="radio" name="pension-type" value="company" checked id="type-company"> 会社員・公務員
+            </label>
+            <label style="flex:1;display:flex;align-items:center;gap:6px;padding:10px;border:2px solid #ddd;border-radius:8px;cursor:pointer;font-size:13px;" id="lbl-self">
+              <input type="radio" name="pension-type" value="self" id="type-self"> 自営業・フリーランス
+            </label>
+          </div>
+
+          <button class="btn" style="margin-top:20px;" onclick="calculate()">試算する</button>
+
+          <div class="result" id="result" style="margin-top:16px;">
+            <div class="card" style="background:#FFFBEB;border:1px solid #FDE68A;">
+              <div style="text-align:center;margin-bottom:8px;">
+                <div style="font-size:13px;color:#888;">月額受取見込み</div>
+                <div id="output" style="font-size:2.4rem;font-weight:700;color:#B45309;padding:8px 0;"></div>
+                <div style="font-size:13px;color:#888;">年間受取見込み</div>
+                <div id="output-year" style="font-size:1.5rem;font-weight:700;color:#B45309;padding:4px 0;"></div>
+              </div>
+              <div class="result-grid">
+                <div class="result-item">
+                  <div class="r-val" id="r-kiso"></div>
+                  <div class="r-lbl">基礎年金（月）</div>
+                </div>
+                <div class="result-item">
+                  <div class="r-val" id="r-kosei"></div>
+                  <div class="r-lbl">厚生年金（月）</div>
+                </div>
+                <div class="result-item">
+                  <div class="r-val" id="r-adjust"></div>
+                  <div class="r-lbl">繰上/繰下補正</div>
+                </div>
+                <div class="result-item">
+                  <div class="r-val" id="r-total-years"></div>
+                  <div class="r-lbl">加入見込み年数</div>
+                </div>
+              </div>
+              <p id="detail" style="color:#666;font-size:13px;margin-top:10px;text-align:center;"></p>
+              <p class="pension-notice">※この試算は概算です。実際の受給額は日本年金機構の「ねんきんネット」でご確認ください。物価スライドや制度改正により変動します。</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 関連サービス -->
+        <div class="card" style="margin-top:8px;">
+            <h3 style="font-size:13px;font-weight:600;color:#888;margin-bottom:10px;">🔗 関連サービス</h3>
+            <div style="display:flex;flex-direction:column;gap:6px;">
+                <a href="https://appadaycreator.github.io/retirement-fund-simulator/" style="color:#6366f1;font-size:13px;text-decoration:none;padding:6px 0;border-bottom:1px solid #f1f5f9;">老後資金シミュレーター →</a>
+                <a href="https://appadaycreator.github.io/lifeplan-simulator/" style="color:#6366f1;font-size:13px;text-decoration:none;padding:6px 0;border-bottom:1px solid #f1f5f9;">Lifeplan Simulator →</a>
+                <a href="https://appadaycreator.github.io/nisa-ideco-simulator/" style="color:#6366f1;font-size:13px;text-decoration:none;padding:6px 0;border-bottom:1px solid #f1f5f9;">Nisa Ideco Simulator →</a>
+            </div>
+        </div>
+
+        <ins class="adsbygoogle" style="display:block;margin:12px 0" data-ad-client="ca-pub-8427583028015858" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </main>
+
+    <footer style="text-align:center;padding:20px;color:white;font-size:12px;opacity:0.75;margin-top:8px;">
+        <p><a href="https://appadaycreator.github.io/" style="color:white;">AppADayCreator</a>
+        | <a href="privacy-policy.html" style="color:white;">プライバシーポリシー</a>
+        | <a href="terms.html" style="color:white;">利用規約</a>
+        | <a href="contact.html" style="color:white;">お問い合わせ</a></p>
+        <p style="margin-top:6px;">© 2025 AppADayCreator. All services are free.</p>
+    </footer>
+
+    <script>
+    const BTN_COLOR = '#B45309';
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('input').forEach(inp => {
+        inp.addEventListener('keydown', e => { if (e.key === 'Enter') calculate(); });
+      });
+      // ラジオボタンのスタイル切り替え
+      document.querySelectorAll('input[name="pension-type"]').forEach(r => {
+        r.addEventListener('change', () => {
+          document.getElementById('lbl-company').style.borderColor = document.getElementById('type-company').checked ? BTN_COLOR : '#ddd';
+          document.getElementById('lbl-self').style.borderColor = document.getElementById('type-self').checked ? BTN_COLOR : '#ddd';
+        });
+      });
+      document.getElementById('lbl-company').style.borderColor = BTN_COLOR;
+    });
+
+    function calculate() {
+      const currentAge  = parseInt(document.getElementById('current-age').value) || 0;
+      const retireAge   = parseInt(document.getElementById('retire-age').value) || 65;
+      const enrollYears = parseInt(document.getElementById('enroll-years').value) || 0;
+      const avgSalary   = parseFloat(document.getElementById('avg-salary').value) || 0;
+      const isCompany   = document.getElementById('type-company').checked;
+
+      if (currentAge < 20 || currentAge > 64) { alert('現在の年齢は20〜64歳で入力してください'); return; }
+      if (avgSalary <= 0) { alert('平均年収を入力してください'); return; }
+
+      // 退職までの残り年数 → 65歳基準で加入年数を計算
+      const remainYears = Math.max(0, 65 - currentAge);
+      const totalEnrollYears = Math.min(45, enrollYears + remainYears);
+
+      // 基礎年金（国民年金）: 満額 816,000円/年（2024年度） × 加入割合
+      const kisoFull = 816000;  // 年間満額（40年加入時）
+      const kisoYearly = Math.round(kisoFull * Math.min(totalEnrollYears, 40) / 40);
+      const kisoMonthly = Math.round(kisoYearly / 12);
+
+      // 厚生年金: 平均標準報酬月額 × 5.481/1000 × 加入月数（会社員のみ）
+      // 平均報酬月額 = 平均年収 / 12 / 10000（万円→円）
+      let koseiMonthly = 0;
+      if (isCompany) {
+        const avgMonthSalary = (avgSalary * 10000) / 12;
+        const enrollMonths = totalEnrollYears * 12;
+        const koseiYearly = Math.round(avgMonthSalary * 0.005481 * enrollMonths);
+        koseiMonthly = Math.round(koseiYearly / 12);
+      }
+
+      // 繰上げ・繰下げ補正
+      // 繰上げ: 65歳基準で1ヶ月早めると -0.4%（60歳で -24%）
+      // 繰下げ: 65歳基準で1ヶ月遅らせると +0.7%（75歳で +84%）
+      let adjustRate = 1.0;
+      let adjustLabel = '補正なし';
+      if (retireAge < 65) {
+        const monthsEarly = (65 - retireAge) * 12;
+        adjustRate = 1 - monthsEarly * 0.004;
+        adjustLabel = '-' + (monthsEarly * 0.4).toFixed(1) + '%（繰上げ）';
+      } else if (retireAge > 65) {
+        const monthsLate = (retireAge - 65) * 12;
+        adjustRate = 1 + monthsLate * 0.007;
+        adjustLabel = '+' + (monthsLate * 0.7).toFixed(1) + '%（繰下げ）';
+      }
+
+      const baseMonthly = kisoMonthly + koseiMonthly;
+      const totalMonthly = Math.round(baseMonthly * adjustRate);
+      const totalYearly = totalMonthly * 12;
+
+      document.getElementById('output').textContent = totalMonthly.toLocaleString() + ' 円 / 月';
+      document.getElementById('output-year').textContent = totalYearly.toLocaleString() + ' 円 / 年';
+      document.getElementById('r-kiso').textContent = kisoMonthly.toLocaleString() + '円';
+      document.getElementById('r-kosei').textContent = isCompany ? koseiMonthly.toLocaleString() + '円' : '対象外';
+      document.getElementById('r-adjust').textContent = adjustLabel;
+      document.getElementById('r-total-years').textContent = totalEnrollYears + '年';
+      document.getElementById('detail').textContent =
+        retireAge + '歳受給開始・加入見込み' + totalEnrollYears + '年・平均年収' + avgSalary.toLocaleString() + '万円で試算';
+      document.getElementById('result').classList.add('show');
+    }
+    </script>
+</body>
+</html>

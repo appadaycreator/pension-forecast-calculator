@@ -1,6 +1,6 @@
 {
   "name": "Pension Forecast Calculator",
-  "short_name": "pension-fore",
+  "short_name": "年金予測",
   "start_url": "/pension-forecast-calculator/",
   "display": "standalone",
   "background_color": "#ffffff",

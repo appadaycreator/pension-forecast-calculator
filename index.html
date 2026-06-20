@@ -207,10 +207,7 @@ input[type="range"]{padding:2px 0;min-height:auto;height:auto;border:none;box-sh
 /* ===== v2 design: marketing landing components (shared with /lp) ===== */
 .lp-wrap{max-width:1120px;margin:0 auto;padding:0 20px}
 .lp-sec{padding:54px 0}
-.lp-sec.bg-soft{background:linear-gradient(180deg,#eaf4fe,#dcecfb)}
-.lp-sec.bg-warm{background:linear-gradient(180deg,#fff8e8,#fdeecb)}
-.sec-head .kdot.warm{color:#c98a00}
-.sec-head .kdot.warm::before,.sec-head .kdot.warm::after{background:#e3a700}
+.lp-sec.bg-soft{background:#f4f8fd}
 .sec-head{text-align:center;margin-bottom:36px}
 .sec-head .kdot{display:inline-flex;align-items:center;gap:8px;color:var(--brand);font-size:12px;font-weight:800;letter-spacing:2px}
 .sec-head .kdot::before,.sec-head .kdot::after{content:"";width:24px;height:2px;background:var(--brand);opacity:.5}
@@ -226,10 +223,9 @@ input[type="range"]{padding:2px 0;min-height:auto;height:auto;border:none;box-sh
 .worry h3{font-size:15.5px;font-weight:800;margin-bottom:6px;color:var(--ink)}
 .worry p{font-size:13px;color:var(--muted)}
 .grid6{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.feat{background:#fff;border:1px solid #f0e2bf;border-radius:14px;padding:26px 20px 22px;position:relative;text-align:center;box-shadow:0 6px 18px rgba(120,90,0,.08);transition:transform .15s,box-shadow .15s;overflow:hidden}
-.feat::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--accent),#ffd34d)}
-.feat:hover{transform:translateY(-3px);box-shadow:0 14px 30px rgba(120,90,0,.16)}
-.feat .fic{width:56px;height:56px;margin:0 auto 14px;background:linear-gradient(135deg,#fff1c7,#ffe49c);border-radius:14px;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 12px rgba(255,184,0,.22)}
+.feat{background:#fff;border:1px solid var(--line);border-radius:14px;padding:22px 20px;position:relative;text-align:center;box-shadow:0 4px 16px rgba(0,40,90,.04);transition:transform .15s,box-shadow .15s}
+.feat:hover{transform:translateY(-3px);box-shadow:0 12px 28px rgba(0,60,130,.1)}
+.feat .fic{width:56px;height:56px;margin:0 auto 14px;background:linear-gradient(135deg,#eaf3fd,#dbeafb);border-radius:14px;display:flex;align-items:center;justify-content:center}
 .feat .fic img{width:32px;height:32px}
 .feat h3{font-size:15px;font-weight:800;margin-bottom:7px;color:var(--ink)}
 .feat p{font-size:12.5px;color:var(--muted);line-height:1.65}
@@ -270,8 +266,8 @@ input[type="range"]{padding:2px 0;min-height:auto;height:auto;border:none;box-sh
 .sc-cell.alt .v{color:var(--ink)}
 .sc-mini{display:flex;align-items:flex-end;gap:6px;height:64px;padding:6px 2px 0;border-top:1px solid var(--line)}
 .sc-mini i{flex:1;background:linear-gradient(180deg,#3a8bff,#0066CC);border-radius:4px 4px 0 0;display:block}
-.hero-photo{margin-top:14px;border-radius:16px;overflow:hidden;box-shadow:0 14px 36px rgba(0,60,130,.22);border:4px solid #fff;outline:3px solid var(--accent);outline-offset:-3px}
-.hero-photo img{width:100%;height:210px;object-fit:cover;object-position:center 28%;display:block}
+.hero-photo{margin-top:14px;border-radius:16px;overflow:hidden;box-shadow:0 14px 36px rgba(0,60,130,.22);border:4px solid #fff}
+.hero-photo img{width:100%;height:150px;object-fit:cover;display:block}
 @media(max-width:860px){.svc-hero .hin{grid-template-columns:1fr;gap:26px}}
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://appadaycreator.com/"},{"@type":"ListItem","position":2,"name":"計算機/お金","item":"https://appadaycreator.com/category/finance/"},{"@type":"ListItem","position":3,"name":"年金受取額予測計算ツール簡単・無料計算","item":"https://appadaycreator.com/pension-forecast-calculator/"}]}</script>
@@ -372,9 +368,9 @@ input[type="range"]{padding:2px 0;min-height:auto;height:auto;border:none;box-sh
     </section>
 
     <!-- ===== 特徴（FEATURES） ===== -->
-    <section class="lp-sec bg-warm">
+    <section class="lp-sec">
       <div class="lp-wrap">
-        <div class="sec-head"><span class="kdot warm">FEATURES</span><h2>このツールの特徴</h2><p>無料・登録不要で、本格的な年金シミュレーションを今すぐ。</p></div>
+        <div class="sec-head"><span class="kdot">FEATURES</span><h2>このツールの特徴</h2><p>無料・登録不要で、本格的な年金シミュレーションを今すぐ。</p></div>
         <div class="grid6">
           <div class="feat"><div class="fic"><img src="assets/icons/split/03-03.png" alt=""></div><h3>かんたん入力</h3><p>年齢・年収・加入期間を入力するだけ。スライダーで直感的に試算できます。</p></div>
           <div class="feat"><div class="fic"><img src="assets/icons/split/01-05.png" alt=""></div><h3>受給開始年齢を比較</h3><p>60〜75歳の繰上げ・繰下げ受給による受取額を一覧で比較できます。</p></div>
@@ -1358,9 +1354,9 @@ input[type="range"]{padding:2px 0;min-height:auto;height:auto;border:none;box-sh
 </div>
 </div>
 <!-- ===== 選ばれる理由（REASONS） ===== -->
-<section class="lp-sec bg-warm">
+<section class="lp-sec bg-soft">
   <div class="lp-wrap">
-    <div class="sec-head"><span class="kdot warm">WHY US</span><h2>安心してご利用いただける理由</h2></div>
+    <div class="sec-head"><span class="kdot">WHY US</span><h2>安心してご利用いただける理由</h2></div>
     <div class="grid4">
       <div class="reason"><div class="ph"><img src="assets/photos/photo_10.jpg" alt=""></div><div class="bd"><div class="ic"><img src="assets/icons/split/01-07.png" alt=""></div><h3>公式情報と併用しやすい</h3><p>日本年金機構「ねんきんネット」と合わせて精度高く確認できます。</p></div></div>
       <div class="reason"><div class="ph"><img src="assets/photos/photo_11.jpg" alt=""></div><div class="bd"><div class="ic"><img src="assets/icons/split/01-08.png" alt=""></div><h3>個人情報不要</h3><p>入力データはブラウザ内で完結。外部サーバーへ送信しません。</p></div></div>
